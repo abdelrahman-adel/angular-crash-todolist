@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Todo } from 'src/app/models/Todo';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+  todosUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  todosLimit: string = '?_limit=7';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTodos() {
+  getServiceTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
+  }
+
+  getDummyTodos() {
     return [
       {
         id: 1,
