@@ -18,12 +18,20 @@ export class TodosComponent implements OnInit {
     this.todoService.getServiceTodos().subscribe(todos => {
       this.todos = todos;
     });
-    //was doing this here
-    this.initTodos();
+    // was doing this here
+    // this.initTodos();
   }
 
   initTodos() {
-    //At first I was initializing todos here, but now we get our todos from a list
+    // At first I was initializing todos here, but now we get our todos from a list
+    this.todos = this.todoService.getDummyTodos();
+  }
+
+  deleteTodo(todo: Todo) {
+    // Remove from server
+    this.todoService.deleteTodo(todo).subscribe();
+    // Remove from UI
+    this.todos = this.todos.filter(t => t.id !== todo.id);
   }
 
 }
