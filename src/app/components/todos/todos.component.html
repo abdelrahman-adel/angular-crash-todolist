@@ -1,10 +1,16 @@
 <div>
+    <app-add-todo
+        (addTodo)="addTodo($event)">
+    </app-add-todo>
+
     <!-- *ngFor is an angular for loob, let is like var
         in javascript which declares a variable with
         unknown compile time type -->
+
     <!-- [todo], square brackets refers to an input,
         we are passing the current todo from the loob
         to a variable named todo in the todo-item component -->
+
     <!-- (deleteTodo), curly brackets is for catching events
         deleteTodo is an emitted event from the child to delete
         this element on the UI, this happens through the method
