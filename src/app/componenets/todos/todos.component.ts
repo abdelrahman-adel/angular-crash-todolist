@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
+
 import { Todo } from '../../models/Todo'
 
 @Component({
@@ -10,30 +12,15 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[];
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.todos = this.todoService.getTodos();
     this.initTodos();
   }
 
   initTodos() {
-    this.todos = [
-      {
-        id: 1,
-        title: 'Todo one',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Todo two',
-        completed: true
-      },
-      {
-        id: 3,
-        title: 'Todo three',
-        completed: false
-      }
-    ];
+    //At first I was initializing todos here, but now we get our todos from a list
   }
 
 }
