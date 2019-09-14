@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodosComponent } from './componenets/todos/todos.component';
-import { TodoItemComponent } from './componenets/todo-item/todo-item.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
